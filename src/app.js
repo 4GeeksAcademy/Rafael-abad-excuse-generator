@@ -5,7 +5,11 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-function excuse() {
+function randomNumber(maxRandomNumber) {
+  return Math.floor(Math.random() * maxRandomNumber);
+}
+
+function randomExcuse() {
   const subjects = [
     "A random guy",
     "My friend",
@@ -29,14 +33,10 @@ function excuse() {
     "when I wasn't looking"
   ];
 
-  function randomNumber() {
-    return Math.floor(Math.random() * 5);
-  }
-
-  const randomSubject = subjects[randomNumber()];
-  const randomAction = actions[randomNumber()];
-  const randomObject = objects[randomNumber()];
-  const randomCondition = conditions[randomNumber()];
+  const randomSubject = subjects[randomNumber(subjects.length)];
+  const randomAction = actions[randomNumber(actions.length)];
+  const randomObject = objects[randomNumber(objects.length)];
+  const randomCondition = conditions[randomNumber(conditions.length)];
 
   const excuse = `${randomSubject} ${randomAction} ${randomObject} ${randomCondition}.`;
 
@@ -45,11 +45,13 @@ function excuse() {
 
 window.onload = function() {
   //write your code herefunction
-  const excuseElement = document.getElementById("excuse-message");
-  if (excuseElement) {
-    excuseElement.addEventListener("click", function() {
-      console.log("Excuse message clicked!");
-      // Add your custom logic here
+  const excuseButtonElement = document.getElementById("excuse-button");
+  if (excuseButtonElement) {
+    excuseButtonElement.addEventListener("click", function() {
+      const excuseMessage = document.getElementById("excuse-message");
+      if (excuseMessage) {
+        excuseMessage.innerHTML = randomExcuse();
+      }
     });
   } else {
     console.log("Element with id 'excuse-message' not found.");
