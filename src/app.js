@@ -5,46 +5,53 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
+const subjects = [
+  "A random guy",
+  "My friend",
+  "A little bird",
+  "The milkman",
+  "My mother"
+];
+const actions = ["ate", "stole", "destroyed", "hid", "threw away"];
+const objects = [
+  "my homework",
+  "my lunch",
+  "my keys",
+  "the TV remote",
+  "the car keys"
+];
+const conditions = [
+  "last night",
+  "this morning",
+  "while I was sleeping",
+  "during lunch",
+  "when I wasn't looking"
+];
+
 function randomNumber(maxRandomNumber) {
   return Math.floor(Math.random() * maxRandomNumber);
 }
 
 function randomExcuse() {
-  const subjects = [
-    "A random guy",
-    "My friend",
-    "A little bird",
-    "The milkman",
-    "My mother"
-  ];
-  const actions = ["ate", "stole", "destroyed", "hid", "threw away"];
-  const objects = [
-    "my homework",
-    "my lunch",
-    "my keys",
-    "the TV remote",
-    "the car keys"
-  ];
-  const conditions = [
-    "last night",
-    "this morning",
-    "while I was sleeping",
-    "during lunch",
-    "when I wasn't looking"
-  ];
-
   const randomSubject = subjects[randomNumber(subjects.length)];
   const randomAction = actions[randomNumber(actions.length)];
   const randomObject = objects[randomNumber(objects.length)];
   const randomCondition = conditions[randomNumber(conditions.length)];
+  //another way to concatenate the strings
+  //const excuse = `${randomSubject} ${randomAction} ${randomObject} ${randomCondition}.`;
 
-  const excuse = `${randomSubject} ${randomAction} ${randomObject} ${randomCondition}.`;
-
-  return excuse;
+  return (
+    randomSubject +
+    " " +
+    randomAction +
+    " " +
+    randomObject +
+    " " +
+    randomCondition
+  );
 }
 
 window.onload = function() {
-  //write your code herefunction
   const excuseButtonElement = document.getElementById("excuse-button");
   if (excuseButtonElement) {
     excuseButtonElement.addEventListener("click", function() {
