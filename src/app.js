@@ -12,20 +12,14 @@ const subjects = [
   "The milkman",
   "My mother"
 ];
-const actions = ["ate", "stole", "destroyed", "hid", "threw away"];
-const objects = [
-  "my homework",
-  "my lunch",
-  "my keys",
-  "the TV remote",
-  "the car keys"
-];
+const actions = ["stole", "ate", "broke", "headbutted", "threw away"];
+const objects = ["my homework", "my food", "my keys", "the TV", "your car"];
 const conditions = [
   "last night",
-  "this morning",
-  "while I was sleeping",
-  "during lunch",
-  "when I wasn't looking"
+  "yesterday",
+  "2 days ago",
+  "during dinner",
+  "while I wasn't looking"
 ];
 
 function randomNumber(maxRandomNumber) {
